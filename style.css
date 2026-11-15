@@ -1,5 +1,7 @@
 body {
     background-color: black;
+    margin: 0;
+    overflow-x: hidden;
 }
 
 table {
@@ -10,8 +12,8 @@ table {
 }
 
 td {
-    width: 94px;
-    height: 94px;
+    width: 9.18vw;
+    height: 9.18vw;
 }
 
 form {
@@ -31,9 +33,39 @@ form input {
 div#board {
     position: relative;
     margin: auto;
-    width: 1024px;
-    height: 863px;
+    width: min(1024px, 100vw);
+    height: min(863px, 84.277vw);
     background: url("./images/board.jpg") no-repeat;
+    background-size: 100% 100%;
+}
+
+@media (min-width: 1024px) {
+    td {
+        width: 94px;
+        height: 94px;
+    }
+}
+
+@media (max-width: 1024px) {
+    table {
+        left: 16.895%;
+        top: 11.356%;
+    }
+
+    form {
+        max-width: calc(100% - 16px);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        align-items: center;
+        padding: 8px;
+    }
+
+    form input,
+    form button {
+        min-height: 40px;
+        max-width: 100%;
+    }
 }
 
 div#messageArea {
