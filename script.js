@@ -1,7 +1,7 @@
 var view = {
   displayMessage: function (msg) {
     var messageArea = document.getElementById("messageArea");
-    messageArea.innerHTML = msg;
+    messageArea.textContent = msg;
   },
   displayHit: function (location) {
     var cell = document.getElementById(location);
@@ -19,11 +19,18 @@ var model = {
   shipLength: 3,
   shipSunk: 0,
   ships: [
-    { locations: [0, 0, 0], hits: ["", "", ""] },
-		{ locations: [0, 0, 0], hits: ["", "", ""] },
-		{ locations: [0, 0, 0], hits: ["", "", ""] }
+    { locations: [], hits: [] },
+    { locations: [], hits: [] },
+    { locations: [], hits: [] },
   ],
+  shots: [],
   fire: function (guess) {
+    if (this.shots.indexOf(guess) >= 0) {
+      view.displayMessage("You already fired at this location.");
+      return null;
+    }
+    this.shots.push(guess);
+
     for (var i = 0; i < this.numShips; i++) {
       var ship = this.ships[i];
       var index = ship.locations.indexOf(guess);
@@ -52,15 +59,16 @@ var model = {
   },
 
   generateShipLocations: function () {
-		var locations;
-		for (var i = 0; i < this.numShips; i++) {
-			do {
-				locations = this.generateShip();
-			} while (this.collision(locations));
-			this.ships[i].locations = locations;
-		}
-		console.log("Ships array: ");
-		console.log(this.ships);
+    var locations;
+    for (var i = 0; i < this.numShips; i++) {
+      do {
+        locations = this.generateShip();
+      } while (this.collision(locations));
+      this.ships[i].locations = locations;
+      this.ships[i].hits = locations.map(function () {
+        return "";
+      });
+    }
 	},
 
 	generateShip: function () {
@@ -106,8 +114,11 @@ var controller = {
   processGuess: function (guess) {
     var location = parseGuess(guess);
     if (location) {
-      this.guesses++;
       var hit = model.fire(location);
+      if (hit === null) {
+        return;
+      }
+      this.guesses++;
       if (hit && model.shipSunk === model.numShips) {
         view.displayMessage('You sank all my battleships, in ' + this.guesses + ' guesses');
       }
