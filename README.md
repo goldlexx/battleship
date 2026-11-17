@@ -1,21 +1,31 @@
-# Battleship
+<div align="center">
 
-A small browser version of the classic Battleship guessing game, built with vanilla JavaScript, HTML, and CSS. Ships are placed randomly on a 7 × 7 board.
+# ⚓ Battleship
 
-## Play
+Небольшая браузерная игра «Морской бой» на vanilla JavaScript.
 
-Open [the live game](https://goldlexx.github.io/battleship/), enter a coordinate such as `A0`, and select **Fire!**. The game reports hits, misses, and when all ships have been sunk.
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6-f7df1e?logo=javascript&logoColor=111)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![Demo](https://img.shields.io/badge/demo-GitHub%20Pages-222?logo=github)](https://goldlexx.github.io/battleship/)
 
-## Run locally
+</div>
 
-Open `index.html` in a browser. No build step or package installation is required.
+## Возможности
 
-## Tests
+- случайная расстановка кораблей на поле 7 × 7;
+- ввод координат, попадания и промахи;
+- сообщение о завершении игры.
 
-Run the game logic tests with Node.js:
+## Демонстрация
 
-```sh
-node --test
-```
+[Открыть игру](https://goldlexx.github.io/battleship/)
 
-The tests cover ship placement and repeated shots. The game does not use a backend or external services.
+## Запуск
+
+Откройте `index.html` в браузере. Сборка и зависимости не требуются.
+
+## Технологии
+
+HTML, CSS, JavaScript.
+
+## Лицензия
+
+Лицензия в репозитории не указана.
