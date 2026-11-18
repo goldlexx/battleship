@@ -1,31 +1,23 @@
 <div align="center">
 
-# ⚓ Battleship
+# ⚓ Морской бой
 
-Небольшая браузерная игра «Морской бой» на vanilla JavaScript.
+**Браузерная игра на поле 7 × 7. Расстановка кораблей меняется с каждой новой партией.**
 
-[![JavaScript](https://img.shields.io/badge/JavaScript-ES6-f7df1e?logo=javascript&logoColor=111)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![Demo](https://img.shields.io/badge/demo-GitHub%20Pages-222?logo=github)](https://goldlexx.github.io/battleship/)
-
-</div>
-
-## Возможности
-
-- случайная расстановка кораблей на поле 7 × 7;
-- ввод координат, попадания и промахи;
-- сообщение о завершении игры.
-
-## Демонстрация
+![JavaScript](https://img.shields.io/badge/JavaScript-806900) ![HTML](https://img.shields.io/badge/HTML-D94D27) ![CSS](https://img.shields.io/badge/CSS-5546A6)
 
 [Открыть игру](https://goldlexx.github.io/battleship/)
 
-## Запуск
+</div>
 
-Откройте `index.html` в браузере. Сборка и зависимости не требуются.
+Введите координату от `A0` до `G6` и нажмите **Fire!**. Попадания и промахи отмечаются на радаре. Когда все палубы корабля найдены, игра сообщает о потоплении. Повторный выстрел в уже проверенную клетку не засчитывается как новое попадание.
 
-## Технологии
+![Игровое поле с радаром и формой ввода координат](docs/interface.jpg)
 
-HTML, CSS, JavaScript.
+## Локальный запуск
 
-## Лицензия
+Откройте `index.html` из корня репозитория в браузере.
 
-Лицензия в репозитории не указана.
+## Проверка
+
+`node --test` запускает проверки расстановки кораблей и повторных выстрелов.
